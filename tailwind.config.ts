@@ -9,6 +9,17 @@ export default {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			sans: ['Inter', 'system-ui', 'sans-serif'],
+  		},
+  		fontSize: {
+  			'7xl': ['4.5rem', { lineHeight: '1.1' }],
+  			'8xl': ['6rem', { lineHeight: '1' }],
+  		},
+  		spacing: {
+  			'18': '4.5rem',
+  			'88': '22rem',
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -93,7 +104,9 @@ export default {
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+  			'fade-in-up': 'fadeInUp 0.6s ease-out',
+  			'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
   		}
   	}
   },
