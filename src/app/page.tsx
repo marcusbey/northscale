@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Image from "next/image"
 import Link from "next/link"
+import styles from "./hero-animations.module.css"
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -248,10 +249,10 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative bg-white overflow-hidden py-12 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-white overflow-visible py-12 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-8">
+            <div className="space-y-8 relative z-10">
               <div className="space-y-6">
                 <h1 className="text-6xl xl:text-7xl font-light text-gray-900 leading-tight tracking-tight">
                   B2B Growth Agency Canada | Revenue Optimization & Business Scaling
@@ -268,66 +269,137 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-
-            {/* Flowing Ribbon Design */}
-            <div className="relative h-[600px] lg:h-[700px] -mr-20">
-              <div className="absolute -top-10 -right-20 w-[120%] h-[120%] overflow-visible">
-                <svg className="w-full h-full" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" aria-label="Decorative flowing ribbon design representing growth and innovation">
-                  <defs>
-                    <linearGradient id="ribbon1" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#00d4ff" />
-                      <stop offset="25%" stopColor="#5b9bd5" />
-                      <stop offset="50%" stopColor="#8b5cf6" />
-                      <stop offset="75%" stopColor="#d946ef" />
-                      <stop offset="100%" stopColor="#f97316" />
-                    </linearGradient>
-                    <linearGradient id="ribbon2" x1="100%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#f97316" />
-                      <stop offset="30%" stopColor="#ec4899" />
-                      <stop offset="70%" stopColor="#8b5cf6" />
-                      <stop offset="100%" stopColor="#00d4ff" />
-                    </linearGradient>
-                  </defs>
-                  
-                  {/* Main flowing ribbon - extended and curved more dramatically */}
-                  <path
-                    d="M 150 100 Q 300 50 450 120 Q 600 190 750 150 Q 800 220 720 300 Q 600 380 450 340 Q 300 300 200 240 Q 100 180 150 100"
-                    fill="url(#ribbon1)"
-                    opacity="0.9"
-                  />
-                  
-                  {/* Secondary ribbon - larger curve */}
-                  <path
-                    d="M 200 200 Q 350 150 500 220 Q 650 290 780 250 Q 850 350 750 450 Q 650 550 500 500 Q 350 450 250 380 Q 150 310 200 200"
-                    fill="url(#ribbon2)"
-                    opacity="0.8"
-                  />
-                  
-                  {/* Third ribbon layer - bottom extension */}
-                  <path
-                    d="M 250 350 Q 400 300 550 370 Q 700 440 820 400 Q 900 500 800 600 Q 700 700 550 650 Q 400 600 300 530 Q 200 460 250 350"
-                    fill="url(#ribbon1)"
-                    opacity="0.7"
-                  />
-                  
-                  {/* Additional flowing elements for depth */}
-                  <g opacity="0.6">
-                    {Array.from({ length: 12 }, (_, i) => (
-                      <path
-                        key={i}
-                        d={`M ${200 + i * 30} ${150 + i * 25} Q ${350 + i * 20} ${200 + i * 30} ${500 + i * 15} ${180 + i * 28} Q ${650 + i * 18} ${160 + i * 35} ${800 + i * 10} ${220 + i * 20}`}
-                        stroke="url(#ribbon1)"
-                        strokeWidth="2"
-                        fill="none"
-                        opacity={0.5 - i * 0.03}
-                      />
-                    ))}
-                  </g>
-                </svg>
-              </div>
-            </div>
           </div>
         </div>
+
+        {/* Flowing Ribbon Design - Positioned absolutely to break out of container */}
+        <div className="absolute top-0 left-[40%] lg:left-[50%] right-0 h-full lg:h-[900px] -mt-20 lg:-mt-32">
+          <div className="relative w-full h-full">
+            {/* Animated gradient background */}
+            <div className="absolute inset-0 opacity-30">
+              <div className={`absolute inset-0 bg-gradient-to-br from-cyan-400 via-purple-500 to-orange-500 ${styles.animateGradientShift}`}></div>
+            </div>
+            
+            {/* Main SVG with enhanced animation */}
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid slice" aria-label="Decorative flowing ribbon design representing growth and innovation">
+              <defs>
+                {/* Animated gradient */}
+                <linearGradient id="ribbon1-animated" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#00d4ff">
+                    <animate attributeName="stop-color" values="#00d4ff;#8b5cf6;#00d4ff" dur="8s" repeatCount="indefinite" />
+                  </stop>
+                  <stop offset="25%" stopColor="#5b9bd5">
+                    <animate attributeName="stop-color" values="#5b9bd5;#d946ef;#5b9bd5" dur="8s" repeatCount="indefinite" />
+                  </stop>
+                  <stop offset="50%" stopColor="#8b5cf6">
+                    <animate attributeName="stop-color" values="#8b5cf6;#f97316;#8b5cf6" dur="8s" repeatCount="indefinite" />
+                  </stop>
+                  <stop offset="75%" stopColor="#d946ef">
+                    <animate attributeName="stop-color" values="#d946ef;#00d4ff;#d946ef" dur="8s" repeatCount="indefinite" />
+                  </stop>
+                  <stop offset="100%" stopColor="#f97316">
+                    <animate attributeName="stop-color" values="#f97316;#5b9bd5;#f97316" dur="8s" repeatCount="indefinite" />
+                  </stop>
+                </linearGradient>
+                
+                <linearGradient id="ribbon2-animated" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#f97316">
+                    <animate attributeName="stop-color" values="#f97316;#00d4ff;#f97316" dur="10s" repeatCount="indefinite" />
+                  </stop>
+                  <stop offset="50%" stopColor="#8b5cf6">
+                    <animate attributeName="stop-color" values="#8b5cf6;#ec4899;#8b5cf6" dur="10s" repeatCount="indefinite" />
+                  </stop>
+                  <stop offset="100%" stopColor="#00d4ff">
+                    <animate attributeName="stop-color" values="#00d4ff;#f97316;#00d4ff" dur="10s" repeatCount="indefinite" />
+                  </stop>
+                </linearGradient>
+
+                {/* Glow filter */}
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+              
+              {/* Main flowing ribbon with animation */}
+              <g filter="url(#glow)">
+                <path
+                  d="M -100 200 Q 200 50 500 150 Q 800 250 1100 100 Q 1300 300 1100 500 Q 900 700 600 600 Q 300 500 100 350 Q -100 200 -100 200"
+                  fill="url(#ribbon1-animated)"
+                  opacity="0.9"
+                  className={styles.animateFlow1}
+                />
+                
+                {/* Secondary ribbon */}
+                <path
+                  d="M 0 300 Q 300 150 600 250 Q 900 350 1200 200 Q 1400 400 1200 600 Q 1000 800 700 700 Q 400 600 200 450 Q 0 300 0 300"
+                  fill="url(#ribbon2-animated)"
+                  opacity="0.7"
+                  className={styles.animateFlow2}
+                />
+                
+                {/* Third ribbon layer */}
+                <path
+                  d="M 100 400 Q 400 250 700 350 Q 1000 450 1300 300 Q 1500 500 1300 700 Q 1100 900 800 800 Q 500 700 300 550 Q 100 400 100 400"
+                  fill="url(#ribbon1-animated)"
+                  opacity="0.5"
+                  className={styles.animateFlow3}
+                />
+              </g>
+              
+              {/* Floating particles */}
+              <g opacity="0.4">
+                {Array.from({ length: 20 }, (_, i) => (
+                  <circle
+                    key={i}
+                    r={Math.random() * 3 + 1}
+                    fill="url(#ribbon1-animated)"
+                    className={styles.animateFloat}
+                    style={{
+                      animationDelay: `${i * 0.5}s`,
+                      animationDuration: `${15 + i * 2}s`
+                    }}
+                  >
+                    <animate
+                      attributeName="cx"
+                      values={`${-50 + i * 60};${1250 - i * 30};${-50 + i * 60}`}
+                      dur={`${20 + i}s`}
+                      repeatCount="indefinite"
+                    />
+                    <animate
+                      attributeName="cy"
+                      values={`${100 + i * 40};${700 - i * 30};${100 + i * 40}`}
+                      dur={`${15 + i}s`}
+                      repeatCount="indefinite"
+                    />
+                  </circle>
+                ))}
+              </g>
+              
+              {/* Additional flowing lines */}
+              <g opacity="0.3">
+                {Array.from({ length: 15 }, (_, i) => (
+                  <path
+                    key={i}
+                    d={`M ${-100 + i * 80} ${200 + i * 30} Q ${200 + i * 60} ${250 + i * 40} ${500 + i * 50} ${200 + i * 35} Q ${800 + i * 40} ${150 + i * 45} ${1200 + i * 30} ${250 + i * 25}`}
+                    stroke="url(#ribbon1-animated)"
+                    strokeWidth="2"
+                    fill="none"
+                    opacity={0.6 - i * 0.03}
+                    className={styles.animateFlowLines}
+                    style={{
+                      animationDelay: `${i * 0.3}s`
+                    }}
+                  />
+                ))}
+              </g>
+            </svg>
+          </div>
+        </div>
+
       </section>
 
       {/* Trusted by Section */}
