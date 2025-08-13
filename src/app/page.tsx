@@ -39,7 +39,7 @@ export default function Home() {
       {/* Header */}
       <header className="bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <div className="flex items-center">
               <div className="text-2xl font-semibold">
@@ -62,8 +62,8 @@ export default function Home() {
               <Link href="#resources" className="text-gray-700 hover:text-gray-900 font-normal transition-colors">
                 Resources
               </Link>
-              <Button className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-2.5 font-normal text-sm transition-all duration-300">
-                Contact us
+              <Button className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 font-normal text-sm transition-all duration-300 rounded">
+                Apply today
               </Button>
             </nav>
 
@@ -131,28 +131,22 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative bg-white overflow-hidden py-20 lg:py-32">
+      <section className="relative bg-white overflow-hidden py-12 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-8">
               <div className="space-y-6">
-                <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
-                  THE WORLD'S LEADING DEDICATED CRO AGENCY
-                </p>
                 <h1 className="text-6xl xl:text-7xl font-light text-gray-900 leading-tight tracking-tight">
-                  Better results with evidence
+                  Embrace possibility, redefine your industry.
                 </h1>
                 <div className="space-y-4 text-xl text-gray-600 leading-relaxed max-w-xl">
                   <p>
-                    Conversion, a GAIN specialist, is the world's leading CRO agency. We use a unique blend of A/B testing, UX research, and personalization to improve our clients' websites and businesses.
-                  </p>
-                  <p>
-                    By experimenting on new messaging, design and functionality (and even pricing and products) we've helped our clients generate over <span className="font-semibold text-gray-900">$2 billion in additional revenue</span>.
+                    NorthScale Group is a Canadian-based growth firm deploying strategic operational and marketing expertise to increase revenue growth and multiply enterprise value.
                   </p>
                 </div>
               </div>
               <div className="pt-4">
-                <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 text-base font-normal transition-all duration-300 rounded-md">
+                <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 text-base font-normal transition-all duration-300 rounded">
                   See what we do
                 </Button>
               </div>
@@ -258,9 +252,9 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row gap-20">
             {/* Sticky Title */}
             <div className="lg:w-1/3">
-              <div className="lg:sticky lg:top-24">
-                <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
-                  Services
+              <div className="lg:sticky lg:top-28">
+                <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight pt-0">
+                  Our integrated platform
                 </h2>
               </div>
             </div>
@@ -441,7 +435,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="pt-4">
-                <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 text-base font-normal transition-all duration-300">
+                <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 text-base font-normal transition-all duration-300 rounded">
                   More details
                 </Button>
               </div>
@@ -456,8 +450,8 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row gap-20">
             {/* Sticky Title */}
             <div className="lg:w-1/3">
-              <div className="lg:sticky lg:top-24">
-                <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight mb-6">
+              <div className="lg:sticky lg:top-28">
+                <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight mb-6 pt-0">
                   Why our clients choose us
                 </h2>
               </div>
@@ -585,7 +579,7 @@ export default function Home() {
                   }
                 ].map((study, index) => (
                   <div key={index} className="flex-shrink-0 w-80 h-80 relative">
-                    <div className={`${study.bg} ${study.pattern} w-full h-full rounded-lg relative overflow-hidden cursor-pointer`}>
+                    <div className={`${study.bg} ${study.pattern} w-full h-full relative overflow-hidden cursor-pointer`}>
                       {/* Flowing lines pattern */}
                       <div className="absolute inset-0 opacity-20">
                         <svg
@@ -669,7 +663,7 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row gap-20">
             {/* Title */}
             <div className="lg:w-1/3">
-              <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight pt-0">
                 We partner with the leading technologies for customer insights
               </h2>
             </div>
@@ -700,7 +694,7 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row gap-20">
             {/* Title */}
             <div className="lg:w-1/3">
-              <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight pt-0">
                 CRO agency FAQs
               </h2>
             </div>
@@ -806,7 +800,7 @@ export default function Home() {
                 Get in touch and see how we can help you.
               </p>
             </div>
-            <Button className="bg-teal-500 hover:bg-teal-600 text-black px-8 py-3 text-base font-medium transition-all duration-300">
+            <Button className="bg-teal-500 hover:bg-teal-600 text-black px-8 py-4 text-base font-medium transition-all duration-300 rounded">
               Contact us
             </Button>
           </div>
