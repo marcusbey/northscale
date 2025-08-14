@@ -270,90 +270,147 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Simplified Flowing Ribbon Design */}
+            {/* Dynamic 3D Ribbon Design */}
             <div className="relative h-[600px] lg:h-[700px]">
               <div className="absolute inset-0 overflow-hidden">
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-label="Decorative flowing ribbon design representing growth and innovation">
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-label="Dynamic 3D ribbon representing growth and innovation">
                   <defs>
-                    <linearGradient id="ribbon1" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#00d4ff" />
-                      <stop offset="25%" stopColor="#5b9bd5" />
-                      <stop offset="50%" stopColor="#8b5cf6" />
-                      <stop offset="75%" stopColor="#d946ef" />
-                      <stop offset="100%" stopColor="#f97316" />
+                    {/* Main ribbon gradient - cyan to orange sweep */}
+                    <linearGradient id="ribbonMain" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#06b6d4" />
+                      <stop offset="20%" stopColor="#0891b2" />
+                      <stop offset="40%" stopColor="#7c3aed" />
+                      <stop offset="60%" stopColor="#db2777" />
+                      <stop offset="80%" stopColor="#f59e0b" />
+                      <stop offset="100%" stopColor="#ef4444" />
                     </linearGradient>
-                    <linearGradient id="ribbon2" x1="100%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#f97316" />
-                      <stop offset="30%" stopColor="#ec4899" />
-                      <stop offset="70%" stopColor="#8b5cf6" />
-                      <stop offset="100%" stopColor="#00d4ff" />
+                    
+                    {/* Depth gradient for shadows */}
+                    <linearGradient id="ribbonShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#164e63" />
+                      <stop offset="50%" stopColor="#581c87" />
+                      <stop offset="100%" stopColor="#991b1b" />
                     </linearGradient>
+                    
+                    {/* Highlight gradient */}
+                    <linearGradient id="ribbonHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#67e8f9" />
+                      <stop offset="33%" stopColor="#a78bfa" />
+                      <stop offset="66%" stopColor="#f472b6" />
+                      <stop offset="100%" stopColor="#fbbf24" />
+                    </linearGradient>
+                    
+                    {/* Radial gradient for depth */}
+                    <radialGradient id="depthGradient" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#ffffff" stopOpacity="0.3" />
+                      <stop offset="100%" stopColor="#000000" stopOpacity="0.1" />
+                    </radialGradient>
                   </defs>
                   
-                  {/* Main flowing ribbon */}
+                  {/* Main ribbon path with dramatic curves */}
                   <path
-                    d="M 150 100 Q 300 50 450 120 Q 600 190 750 150 Q 800 220 720 300 Q 600 380 450 340 Q 300 300 200 240 Q 100 180 150 100"
-                    fill="url(#ribbon1)"
-                    opacity="0.8"
+                    d="M 100 150 
+                       C 200 50, 350 80, 450 120
+                       C 550 160, 650 100, 750 140
+                       C 800 160, 820 200, 780 250
+                       C 740 300, 680 320, 620 360
+                       C 560 400, 500 450, 440 420
+                       C 380 390, 320 350, 280 320
+                       C 240 290, 200 250, 160 220
+                       C 120 190, 100 170, 100 150 Z"
+                    fill="url(#ribbonMain)"
+                    opacity="0.9"
                   />
                   
-                  {/* Secondary ribbon - fillaire effect (outline) */}
+                  {/* Shadow layer for 3D effect */}
                   <path
-                    d="M 150 100 Q 300 50 450 120 Q 600 190 750 150 Q 800 220 720 300 Q 600 380 450 340 Q 300 300 200 240 Q 100 180 150 100"
-                    fill="none"
-                    stroke="url(#ribbon1)"
-                    strokeWidth="2"
-                    opacity="0.6"
-                    transform="translate(20, 20)"
-                  />
-                  
-                  {/* Third ribbon - another fillaire duplicate */}
-                  <path
-                    d="M 200 200 Q 350 150 500 220 Q 650 290 750 250 Q 800 320 720 400 Q 600 480 450 440 Q 300 400 250 340 Q 150 280 200 200"
-                    fill="url(#ribbon2)"
-                    opacity="0.6"
-                  />
-                  
-                  {/* Fourth ribbon - fillaire outline */}
-                  <path
-                    d="M 200 200 Q 350 150 500 220 Q 650 290 750 250 Q 800 320 720 400 Q 600 480 450 440 Q 300 400 250 340 Q 150 280 200 200"
-                    fill="none"
-                    stroke="url(#ribbon2)"
-                    strokeWidth="2"
+                    d="M 110 160 
+                       C 210 60, 360 90, 460 130
+                       C 560 170, 660 110, 760 150
+                       C 810 170, 830 210, 790 260
+                       C 750 310, 690 330, 630 370
+                       C 570 410, 510 460, 450 430
+                       C 390 400, 330 360, 290 330
+                       C 250 300, 210 260, 170 230
+                       C 130 200, 110 180, 110 160 Z"
+                    fill="url(#ribbonShadow)"
                     opacity="0.4"
-                    transform="translate(-15, 15)"
                   />
                   
-                  {/* Bottom ribbon */}
+                  {/* Second ribbon layer with twist */}
                   <path
-                    d="M 250 350 Q 400 300 550 370 Q 700 440 780 400 Q 820 470 750 550 Q 650 630 500 590 Q 350 550 300 490 Q 200 430 250 350"
-                    fill="url(#ribbon1)"
-                    opacity="0.5"
+                    d="M 150 300
+                       C 250 250, 380 280, 480 320
+                       C 580 360, 680 300, 750 340
+                       C 800 360, 820 400, 780 450
+                       C 740 500, 680 520, 620 560
+                       C 560 600, 500 650, 440 620
+                       C 380 590, 320 550, 280 520
+                       C 240 490, 200 450, 180 420
+                       C 160 390, 150 360, 150 300 Z"
+                    fill="url(#ribbonMain)"
+                    opacity="0.7"
+                    transform="rotate(-10 400 400)"
                   />
                   
-                  {/* Bottom ribbon fillaire */}
+                  {/* Highlight layer for dimension */}
                   <path
-                    d="M 250 350 Q 400 300 550 370 Q 700 440 780 400 Q 820 470 750 550 Q 650 630 500 590 Q 350 550 300 490 Q 200 430 250 350"
-                    fill="none"
-                    stroke="url(#ribbon1)"
-                    strokeWidth="1"
-                    opacity="0.3"
-                    transform="translate(10, -10)"
+                    d="M 120 140 
+                       C 220 40, 370 70, 470 110
+                       C 570 150, 670 90, 770 130
+                       L 760 150
+                       C 660 110, 560 170, 460 130
+                       C 360 90, 210 60, 110 160
+                       C 115 153, 118 146, 120 140 Z"
+                    fill="url(#ribbonHighlight)"
+                    opacity="0.6"
                   />
                   
-                  {/* Simple flowing elements for depth */}
-                  <g opacity="0.4">
-                    {Array.from({ length: 8 }, (_, i) => (
-                      <path
-                        key={i}
-                        d={`M ${200 + i * 50} ${150 + i * 30} Q ${350 + i * 30} ${200 + i * 40} ${500 + i * 25} ${180 + i * 35} Q ${650 + i * 20} ${160 + i * 45} ${800} ${220 + i * 30}`}
-                        stroke="url(#ribbon1)"
-                        strokeWidth="1"
-                        fill="none"
-                        opacity={0.5 - i * 0.05}
-                      />
-                    ))}
+                  {/* Additional flowing strands for complexity */}
+                  <g opacity="0.3">
+                    {Array.from({ length: 12 }, (_, i) => {
+                      const offset = i * 25;
+                      const curve = i * 15;
+                      return (
+                        <path
+                          key={i}
+                          d={`M ${150 + offset} ${120 + curve} 
+                             C ${250 + offset} ${80 + curve}, ${350 + offset} ${110 + curve}, ${450 + offset} ${140 + curve}
+                             C ${550 + offset} ${170 + curve}, ${650 + offset} ${130 + curve}, ${750 + offset} ${160 + curve}`}
+                          stroke="url(#ribbonMain)"
+                          strokeWidth={Math.max(1, 3 - i * 0.2)}
+                          fill="none"
+                          opacity={0.6 - i * 0.04}
+                        />
+                      );
+                    })}
                   </g>
+                  
+                  {/* Bottom flowing ribbon */}
+                  <path
+                    d="M 200 450
+                       C 300 400, 430 430, 530 470
+                       C 630 510, 730 450, 800 490
+                       C 820 500, 840 530, 800 570
+                       C 760 610, 700 630, 640 670
+                       C 580 710, 520 760, 460 730
+                       C 400 700, 340 660, 300 630
+                       C 260 600, 220 560, 200 530
+                       C 185 500, 185 475, 200 450 Z"
+                    fill="url(#ribbonMain)"
+                    opacity="0.5"
+                    transform="scale(0.9) translate(50, -20)"
+                  />
+                  
+                  {/* Subtle depth overlay */}
+                  <ellipse
+                    cx="400"
+                    cy="350"
+                    rx="300"
+                    ry="200"
+                    fill="url(#depthGradient)"
+                    opacity="0.3"
+                  />
                 </svg>
               </div>
             </div>
