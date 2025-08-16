@@ -17,6 +17,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "NorthScale Group | B2B Growth Agency & Business Growth Consulting Canada",
   description: "Leading Canadian B2B growth agency specializing in revenue optimization, growth marketing, and business scaling strategies. Drive measurable growth with our expert consulting services.",
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+  },
   keywords: "B2B growth agency, business growth consulting, revenue optimization, growth marketing firm, Canadian B2B consulting, enterprise growth strategies, business scaling, marketing automation, sales enablement",
   authors: [{ name: "NorthScale Group" }],
   creator: "NorthScale Group",
