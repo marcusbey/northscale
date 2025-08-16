@@ -4,26 +4,30 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 function FloatingPaths({ position }: { position: number }) {
-    const paths = Array.from({ length: 36 }, (_, i) => ({
-        id: i,
-        d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
-            380 - i * 5 * position
-        } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
-            152 - i * 5 * position
-        } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
-            684 - i * 5 * position
-        } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-        // NorthScale brand colors matching your gradients
-        color: i % 4 === 0 ? '#06b6d4' : i % 4 === 1 ? '#8b5cf6' : i % 4 === 2 ? '#db2777' : '#f59e0b',
-        width: 0.5 + i * 0.02,
-    }));
+    // Wide canvas
+    const W = 1600;
+    const H = 900;
+    const paths = Array.from({ length: 56 }, (_, i) => {
+        const y = H * 0.06 + i * 15; // start higher and cover more of the area
+        const startX = -400 - i * 8 * position; // offscreen left
+        const c1x = W * 0.25 - i * 6 * position;
+        const c1y = H * 0.08 + i * 10;
+        const midX = W * 0.6 - i * 3 * position;
+        const midY = y;
+        const endX = W + 400; // offscreen right
+        const color = i % 4 === 0 ? '#06b6d4' : i % 4 === 1 ? '#8b5cf6' : i % 4 === 2 ? '#db2777' : '#f59e0b';
+        const width = 0.5 + i * 0.02;
+        const d = `M${startX},${y} Q${c1x},${c1y} ${midX},${midY} T${endX},${y}`;
+        return { id: i, d, color, width };
+    });
 
     return (
         <div className="absolute inset-0 pointer-events-none">
             <svg
                 className="w-full h-full"
-                viewBox="0 0 696 316"
+                viewBox="0 0 1600 900"
                 fill="none"
+                preserveAspectRatio="xMidYMid slice"
             >
                 <title>Background Paths</title>
                 {paths.map((path) => (
@@ -61,11 +65,11 @@ export function BackgroundPaths({
 }) {
     return (
         <div className="relative bg-white overflow-hidden py-12 lg:py-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     <div className="space-y-8 relative z-10">
                         <div className="space-y-6">
-                            <h1 className="text-6xl xl:text-7xl font-light text-gray-900 leading-tight tracking-tight">
+                            <h1 className="text-6xl xl:text-7xl font-light text-gray-900 leading-tight tracking-tight md:max-w-[18ch] lg:max-w-[20ch] xl:max-w-[22ch] break-words">
                                 {title}
                             </h1>
                             <div className="space-y-4 text-xl text-gray-600 leading-relaxed max-w-xl">
@@ -84,15 +88,10 @@ export function BackgroundPaths({
                         {/* Empty space for the background paths to show through */}
                     </div>
                 </div>
-
-                {/* Background paths - covering from hero text container to beyond browser edge */}
-                <div className="absolute top-0 bottom-0 pointer-events-none" style={{
-                    left: 'calc(50% - 10rem)', // Start from around the hero text container edge
-                    right: 'calc(-100vw + 100%)', // Extend way beyond the right edge of the viewport
-                    width: '200vw' // Ensure it covers well beyond viewport
-                }}>
-                    <FloatingPaths position={1} />
-                </div>
+            </div>
+            {/* Background paths - start earlier than center and cover full right area */}
+            <div className="absolute inset-y-0 left-[36%] right-0 pointer-events-none z-0 lg:left-[33%]">
+                <FloatingPaths position={1} />
             </div>
         </div>
     );
