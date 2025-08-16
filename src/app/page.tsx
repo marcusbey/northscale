@@ -4,9 +4,9 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { BackgroundPaths } from "@/components/ui/background-paths"
 import Image from "next/image"
 import Link from "next/link"
-import styles from "./hero-animations.module.css"
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -248,119 +248,11 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative bg-white overflow-hidden py-12 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <h1 className="text-6xl xl:text-7xl font-light text-gray-900 leading-tight tracking-tight">
-                  Embrace possibility, redefine your industry.
-                </h1>
-                <div className="space-y-4 text-xl text-gray-600 leading-relaxed max-w-xl">
-                  <p>
-                    NorthScale Group is a Canadian-based growth firm deploying strategic operational and marketing expertise to increase revenue growth and multiply enterprise value.
-                  </p>
-                </div>
-              </div>
-              <div className="pt-4">
-                <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 text-base font-normal transition-all duration-300 rounded">
-                  See what we do
-                </Button>
-              </div>
-            </div>
-
-            {/* Modern Growth Visual */}
-            <div className="relative h-[600px] lg:h-[700px]">
-              <div className="absolute inset-0 overflow-hidden">
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-label="Modern growth visualization representing business scaling">
-                  <defs>
-                    {/* Primary gradient */}
-                    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#3b82f6" />
-                      <stop offset="50%" stopColor="#8b5cf6" />
-                      <stop offset="100%" stopColor="#06b6d4" />
-                    </linearGradient>
-                    
-                    {/* Secondary gradient */}
-                    <linearGradient id="secondaryGradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#f59e0b" />
-                      <stop offset="50%" stopColor="#ef4444" />
-                      <stop offset="100%" stopColor="#ec4899" />
-                    </linearGradient>
-                    
-                    {/* Accent gradient */}
-                    <linearGradient id="accentGradient" x1="50%" y1="0%" x2="50%" y2="100%">
-                      <stop offset="0%" stopColor="#10b981" />
-                      <stop offset="100%" stopColor="#06b6d4" />
-                    </linearGradient>
-                  </defs>
-                  
-                  {/* Background geometric shapes */}
-                  <g opacity="0.6">
-                    {/* Large circles */}
-                    <circle cx="200" cy="150" r="80" fill="url(#primaryGradient)" opacity="0.3" />
-                    <circle cx="600" cy="250" r="120" fill="url(#secondaryGradient)" opacity="0.2" />
-                    <circle cx="150" cy="450" r="60" fill="url(#accentGradient)" opacity="0.4" />
-                    
-                    {/* Growth arrows/lines */}
-                    <path d="M 100 600 L 300 400 L 500 300 L 700 150" stroke="url(#primaryGradient)" strokeWidth="4" fill="none" opacity="0.7" />
-                    <path d="M 150 650 L 350 450 L 550 350 L 750 200" stroke="url(#secondaryGradient)" strokeWidth="3" fill="none" opacity="0.5" />
-                    
-                    {/* Geometric bars representing growth */}
-                    <rect x="120" y="500" width="40" height="100" fill="url(#primaryGradient)" opacity="0.6" rx="4" />
-                    <rect x="180" y="450" width="40" height="150" fill="url(#primaryGradient)" opacity="0.7" rx="4" />
-                    <rect x="240" y="400" width="40" height="200" fill="url(#primaryGradient)" opacity="0.8" rx="4" />
-                    <rect x="300" y="350" width="40" height="250" fill="url(#primaryGradient)" opacity="0.9" rx="4" />
-                    
-                    {/* Floating geometric elements */}
-                    <polygon points="500,100 520,140 480,140" fill="url(#accentGradient)" opacity="0.5" />
-                    <polygon points="650,180 680,210 650,240 620,210" fill="url(#secondaryGradient)" opacity="0.4" />
-                    <rect x="350" y="200" width="30" height="30" fill="url(#primaryGradient)" opacity="0.3" rx="6" transform="rotate(45 365 215)" />
-                  </g>
-                  
-                  {/* Growth curve visualization */}
-                  <g opacity="0.8">
-                    <path d="M 50 700 Q 200 600 400 400 Q 600 200 750 100" 
-                          stroke="url(#primaryGradient)" 
-                          strokeWidth="6" 
-                          fill="none" 
-                          strokeLinecap="round" />
-                    
-                    {/* Data points on curve */}
-                    <circle cx="50" cy="700" r="6" fill="url(#primaryGradient)" />
-                    <circle cx="200" cy="600" r="8" fill="url(#secondaryGradient)" />
-                    <circle cx="400" cy="400" r="10" fill="url(#accentGradient)" />
-                    <circle cx="600" cy="200" r="8" fill="url(#primaryGradient)" />
-                    <circle cx="750" cy="100" r="6" fill="url(#secondaryGradient)" />
-                  </g>
-                  
-                  {/* Abstract network connections */}
-                  <g opacity="0.4">
-                    <line x1="200" y1="150" x2="350" y2="200" stroke="url(#primaryGradient)" strokeWidth="2" />
-                    <line x1="350" y1="200" x2="500" y2="100" stroke="url(#primaryGradient)" strokeWidth="2" />
-                    <line x1="600" y1="250" x2="650" y2="180" stroke="url(#secondaryGradient)" strokeWidth="2" />
-                    <line x1="150" y1="450" x2="300" y2="350" stroke="url(#accentGradient)" strokeWidth="2" />
-                  </g>
-                  
-                  {/* Subtle background pattern */}
-                  <g opacity="0.1">
-                    {Array.from({ length: 20 }, (_, i) => (
-                      <circle 
-                        key={i}
-                        cx={100 + (i % 5) * 150} 
-                        cy={100 + Math.floor(i / 5) * 150} 
-                        r="2" 
-                        fill="url(#primaryGradient)" 
-                      />
-                    ))}
-                  </g>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section with Background Paths */}
+      <BackgroundPaths 
+        title="Embrace possibility, redefine your industry."
+        subtitle="NorthScale Group is a Canadian-based growth firm deploying strategic operational and marketing expertise to increase revenue growth and multiply enterprise value."
+      />
 
       {/* Trusted by Section */}
       <section className="bg-black py-20">
