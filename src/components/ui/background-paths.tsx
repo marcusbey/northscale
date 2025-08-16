@@ -24,7 +24,6 @@ function FloatingPaths({ position }: { position: number }) {
                 className="w-full h-full"
                 viewBox="0 0 696 316"
                 fill="none"
-                preserveAspectRatio="none"
             >
                 <title>Background Paths</title>
                 {paths.map((path) => (
@@ -66,7 +65,7 @@ export function BackgroundPaths({
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     <div className="space-y-8 relative z-10">
                         <div className="space-y-6">
-                            <h1 className="text-5xl md:text-6xl lg:text-8xl xl:text-9xl font-light text-gray-900 leading-[1.05] tracking-tight text-balance lg:max-w-[20ch] xl:max-w-[18ch]">
+                            <h1 className="text-6xl xl:text-7xl font-light text-gray-900 leading-tight tracking-tight">
                                 {title}
                             </h1>
                             <div className="space-y-4 text-xl text-gray-600 leading-relaxed max-w-xl">
@@ -81,13 +80,17 @@ export function BackgroundPaths({
                     </div>
 
                     {/* Right side for visual balance */}
-                    <div className="relative h-[600px] lg:h-[720px]">
+                    <div className="relative h-[600px] lg:h-[700px]">
                         {/* Empty space for the background paths to show through */}
                     </div>
                 </div>
 
-                {/* Background paths - fill entire parent container */}
-                <div className="absolute inset-0 pointer-events-none">
+                {/* Background paths - covering from hero text container to beyond browser edge */}
+                <div className="absolute top-0 bottom-0 pointer-events-none" style={{
+                    left: 'calc(50% - 10rem)', // Start from around the hero text container edge
+                    right: 'calc(-100vw + 100%)', // Extend way beyond the right edge of the viewport
+                    width: '200vw' // Ensure it covers well beyond viewport
+                }}>
                     <FloatingPaths position={1} />
                 </div>
             </div>
