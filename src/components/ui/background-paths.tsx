@@ -36,7 +36,7 @@ function FloatingPaths({ position }: { position: number }) {
                         d={path.d}
                         stroke={path.color}
                         strokeWidth={path.width}
-                        strokeOpacity={0.15 + path.id * 0.015}
+                        strokeOpacity={Math.min(0.6, 0.25 + path.id * 0.01)}
                         initial={{ pathLength: 0.3, opacity: 0.4 }}
                         animate={{
                             pathLength: 1,
@@ -69,7 +69,7 @@ export function BackgroundPaths({
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     <div className="space-y-8 relative z-10">
                         <div className="space-y-6">
-                            <h1 className="text-6xl xl:text-7xl font-light text-gray-900 leading-tight tracking-tight md:max-w-[18ch] lg:max-w-[20ch] xl:max-w-[22ch] break-words">
+                            <h1 className="text-6xl xl:text-7xl font-light text-gray-900 leading-tight tracking-tight md:max-w-[32ch] lg:max-w-[40ch] xl:max-w-[44ch] break-words" style={{ textWrap: 'balance' }}>
                                 {title}
                             </h1>
                             <div className="space-y-4 text-xl text-gray-600 leading-relaxed max-w-xl">
@@ -89,8 +89,8 @@ export function BackgroundPaths({
                     </div>
                 </div>
             </div>
-            {/* Background paths - start earlier than center and cover full right area */}
-            <div className="absolute inset-y-0 left-[36%] right-0 pointer-events-none z-0 lg:left-[33%]">
+            {/* Background paths - responsive start position for better coverage */}
+            <div className="absolute inset-y-0 left-1/2 md:left-[30%] lg:left-[33%] right-0 pointer-events-none z-0">
                 <FloatingPaths position={1} />
             </div>
         </div>
