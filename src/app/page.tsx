@@ -155,12 +155,12 @@ export default function Home() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <div className="flex items-center">
-              <div className="w-20 h-16 overflow-hidden flex items-center justify-center">
+              <div className="w-28 h-20 overflow-hidden flex items-center justify-center">
                 <Image 
                   src="/images/nsg-logo.png" 
                   alt="NorthScale Group - B2B Growth Agency" 
-                  width={80} 
-                  height={80}
+                  width={112} 
+                  height={112}
                   className="object-cover object-center scale-[0.98]"
                 />
               </div>
@@ -270,147 +270,91 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Dynamic 3D Ribbon Design */}
+            {/* Modern Growth Visual */}
             <div className="relative h-[600px] lg:h-[700px]">
               <div className="absolute inset-0 overflow-hidden">
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-label="Dynamic 3D ribbon representing growth and innovation">
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-label="Modern growth visualization representing business scaling">
                   <defs>
-                    {/* Main ribbon gradient - cyan to orange sweep */}
-                    <linearGradient id="ribbonMain" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#06b6d4" />
-                      <stop offset="20%" stopColor="#0891b2" />
-                      <stop offset="40%" stopColor="#7c3aed" />
-                      <stop offset="60%" stopColor="#db2777" />
-                      <stop offset="80%" stopColor="#f59e0b" />
-                      <stop offset="100%" stopColor="#ef4444" />
+                    {/* Primary gradient */}
+                    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#3b82f6" />
+                      <stop offset="50%" stopColor="#8b5cf6" />
+                      <stop offset="100%" stopColor="#06b6d4" />
                     </linearGradient>
                     
-                    {/* Depth gradient for shadows */}
-                    <linearGradient id="ribbonShadow" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#164e63" />
-                      <stop offset="50%" stopColor="#581c87" />
-                      <stop offset="100%" stopColor="#991b1b" />
+                    {/* Secondary gradient */}
+                    <linearGradient id="secondaryGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#f59e0b" />
+                      <stop offset="50%" stopColor="#ef4444" />
+                      <stop offset="100%" stopColor="#ec4899" />
                     </linearGradient>
                     
-                    {/* Highlight gradient */}
-                    <linearGradient id="ribbonHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#67e8f9" />
-                      <stop offset="33%" stopColor="#a78bfa" />
-                      <stop offset="66%" stopColor="#f472b6" />
-                      <stop offset="100%" stopColor="#fbbf24" />
+                    {/* Accent gradient */}
+                    <linearGradient id="accentGradient" x1="50%" y1="0%" x2="50%" y2="100%">
+                      <stop offset="0%" stopColor="#10b981" />
+                      <stop offset="100%" stopColor="#06b6d4" />
                     </linearGradient>
-                    
-                    {/* Radial gradient for depth */}
-                    <radialGradient id="depthGradient" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="#ffffff" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="#000000" stopOpacity="0.1" />
-                    </radialGradient>
                   </defs>
                   
-                  {/* Main ribbon path with dramatic curves */}
-                  <path
-                    d="M 100 150 
-                       C 200 50, 350 80, 450 120
-                       C 550 160, 650 100, 750 140
-                       C 800 160, 820 200, 780 250
-                       C 740 300, 680 320, 620 360
-                       C 560 400, 500 450, 440 420
-                       C 380 390, 320 350, 280 320
-                       C 240 290, 200 250, 160 220
-                       C 120 190, 100 170, 100 150 Z"
-                    fill="url(#ribbonMain)"
-                    opacity="0.9"
-                  />
-                  
-                  {/* Shadow layer for 3D effect */}
-                  <path
-                    d="M 110 160 
-                       C 210 60, 360 90, 460 130
-                       C 560 170, 660 110, 760 150
-                       C 810 170, 830 210, 790 260
-                       C 750 310, 690 330, 630 370
-                       C 570 410, 510 460, 450 430
-                       C 390 400, 330 360, 290 330
-                       C 250 300, 210 260, 170 230
-                       C 130 200, 110 180, 110 160 Z"
-                    fill="url(#ribbonShadow)"
-                    opacity="0.4"
-                  />
-                  
-                  {/* Second ribbon layer with twist */}
-                  <path
-                    d="M 150 300
-                       C 250 250, 380 280, 480 320
-                       C 580 360, 680 300, 750 340
-                       C 800 360, 820 400, 780 450
-                       C 740 500, 680 520, 620 560
-                       C 560 600, 500 650, 440 620
-                       C 380 590, 320 550, 280 520
-                       C 240 490, 200 450, 180 420
-                       C 160 390, 150 360, 150 300 Z"
-                    fill="url(#ribbonMain)"
-                    opacity="0.7"
-                    transform="rotate(-10 400 400)"
-                  />
-                  
-                  {/* Highlight layer for dimension */}
-                  <path
-                    d="M 120 140 
-                       C 220 40, 370 70, 470 110
-                       C 570 150, 670 90, 770 130
-                       L 760 150
-                       C 660 110, 560 170, 460 130
-                       C 360 90, 210 60, 110 160
-                       C 115 153, 118 146, 120 140 Z"
-                    fill="url(#ribbonHighlight)"
-                    opacity="0.6"
-                  />
-                  
-                  {/* Additional flowing strands for complexity */}
-                  <g opacity="0.3">
-                    {Array.from({ length: 12 }, (_, i) => {
-                      const offset = i * 25;
-                      const curve = i * 15;
-                      return (
-                        <path
-                          key={i}
-                          d={`M ${150 + offset} ${120 + curve} 
-                             C ${250 + offset} ${80 + curve}, ${350 + offset} ${110 + curve}, ${450 + offset} ${140 + curve}
-                             C ${550 + offset} ${170 + curve}, ${650 + offset} ${130 + curve}, ${750 + offset} ${160 + curve}`}
-                          stroke="url(#ribbonMain)"
-                          strokeWidth={Math.max(1, 3 - i * 0.2)}
-                          fill="none"
-                          opacity={0.6 - i * 0.04}
-                        />
-                      );
-                    })}
+                  {/* Background geometric shapes */}
+                  <g opacity="0.6">
+                    {/* Large circles */}
+                    <circle cx="200" cy="150" r="80" fill="url(#primaryGradient)" opacity="0.3" />
+                    <circle cx="600" cy="250" r="120" fill="url(#secondaryGradient)" opacity="0.2" />
+                    <circle cx="150" cy="450" r="60" fill="url(#accentGradient)" opacity="0.4" />
+                    
+                    {/* Growth arrows/lines */}
+                    <path d="M 100 600 L 300 400 L 500 300 L 700 150" stroke="url(#primaryGradient)" strokeWidth="4" fill="none" opacity="0.7" />
+                    <path d="M 150 650 L 350 450 L 550 350 L 750 200" stroke="url(#secondaryGradient)" strokeWidth="3" fill="none" opacity="0.5" />
+                    
+                    {/* Geometric bars representing growth */}
+                    <rect x="120" y="500" width="40" height="100" fill="url(#primaryGradient)" opacity="0.6" rx="4" />
+                    <rect x="180" y="450" width="40" height="150" fill="url(#primaryGradient)" opacity="0.7" rx="4" />
+                    <rect x="240" y="400" width="40" height="200" fill="url(#primaryGradient)" opacity="0.8" rx="4" />
+                    <rect x="300" y="350" width="40" height="250" fill="url(#primaryGradient)" opacity="0.9" rx="4" />
+                    
+                    {/* Floating geometric elements */}
+                    <polygon points="500,100 520,140 480,140" fill="url(#accentGradient)" opacity="0.5" />
+                    <polygon points="650,180 680,210 650,240 620,210" fill="url(#secondaryGradient)" opacity="0.4" />
+                    <rect x="350" y="200" width="30" height="30" fill="url(#primaryGradient)" opacity="0.3" rx="6" transform="rotate(45 365 215)" />
                   </g>
                   
-                  {/* Bottom flowing ribbon */}
-                  <path
-                    d="M 200 450
-                       C 300 400, 430 430, 530 470
-                       C 630 510, 730 450, 800 490
-                       C 820 500, 840 530, 800 570
-                       C 760 610, 700 630, 640 670
-                       C 580 710, 520 760, 460 730
-                       C 400 700, 340 660, 300 630
-                       C 260 600, 220 560, 200 530
-                       C 185 500, 185 475, 200 450 Z"
-                    fill="url(#ribbonMain)"
-                    opacity="0.5"
-                    transform="scale(0.9) translate(50, -20)"
-                  />
+                  {/* Growth curve visualization */}
+                  <g opacity="0.8">
+                    <path d="M 50 700 Q 200 600 400 400 Q 600 200 750 100" 
+                          stroke="url(#primaryGradient)" 
+                          strokeWidth="6" 
+                          fill="none" 
+                          strokeLinecap="round" />
+                    
+                    {/* Data points on curve */}
+                    <circle cx="50" cy="700" r="6" fill="url(#primaryGradient)" />
+                    <circle cx="200" cy="600" r="8" fill="url(#secondaryGradient)" />
+                    <circle cx="400" cy="400" r="10" fill="url(#accentGradient)" />
+                    <circle cx="600" cy="200" r="8" fill="url(#primaryGradient)" />
+                    <circle cx="750" cy="100" r="6" fill="url(#secondaryGradient)" />
+                  </g>
                   
-                  {/* Subtle depth overlay */}
-                  <ellipse
-                    cx="400"
-                    cy="350"
-                    rx="300"
-                    ry="200"
-                    fill="url(#depthGradient)"
-                    opacity="0.3"
-                  />
+                  {/* Abstract network connections */}
+                  <g opacity="0.4">
+                    <line x1="200" y1="150" x2="350" y2="200" stroke="url(#primaryGradient)" strokeWidth="2" />
+                    <line x1="350" y1="200" x2="500" y2="100" stroke="url(#primaryGradient)" strokeWidth="2" />
+                    <line x1="600" y1="250" x2="650" y2="180" stroke="url(#secondaryGradient)" strokeWidth="2" />
+                    <line x1="150" y1="450" x2="300" y2="350" stroke="url(#accentGradient)" strokeWidth="2" />
+                  </g>
+                  
+                  {/* Subtle background pattern */}
+                  <g opacity="0.1">
+                    {Array.from({ length: 20 }, (_, i) => (
+                      <circle 
+                        key={i}
+                        cx={100 + (i % 5) * 150} 
+                        cy={100 + Math.floor(i / 5) * 150} 
+                        r="2" 
+                        fill="url(#primaryGradient)" 
+                      />
+                    ))}
+                  </g>
                 </svg>
               </div>
             </div>
@@ -993,13 +937,13 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {/* Logo and certification - Full width on mobile */}
             <div className="space-y-6 sm:col-span-2 md:col-span-1">
-              <div className="w-20 h-16 flex items-center justify-start bg-white border-2 border-black">
+              <div className="w-32 h-24 flex items-center justify-start">
                 <Image 
-                  src="/images/nsg-logo.png" 
+                  src="/images/nsg-logo-white.png" 
                   alt="NorthScale Group - B2B Growth Agency" 
-                  width={80} 
-                  height={80}
-                  className="object-cover object-center scale-[0.98]"
+                  width={128} 
+                  height={128}
+                  className="object-contain object-left"
                 />
               </div>
               <p className="text-white/60 text-sm leading-normal">
