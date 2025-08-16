@@ -30,27 +30,41 @@ function FloatingPaths({ position }: { position: number }) {
                 preserveAspectRatio="xMidYMid slice"
             >
                 <title>Background Paths</title>
-                {paths.map((path) => (
-                    <motion.path
-                        key={path.id}
-                        d={path.d}
-                        stroke={path.color}
-                        strokeWidth={path.width}
-                        strokeOpacity={Math.min(0.6, 0.25 + path.id * 0.01)}
-                        initial={{ pathLength: 0.3, opacity: 0.4 }}
-                        animate={{
-                            pathLength: 1,
-                            opacity: [0.2, 0.5, 0.2],
-                            pathOffset: [0, 1, 0],
-                        }}
-                        transition={{
-                            duration: 25 + Math.random() * 15,
-                            repeat: Number.POSITIVE_INFINITY,
-                            ease: "linear",
-                            delay: path.id * 0.1,
-                        }}
-                    />
-                ))}
+                <defs>
+                    {/* Mask to hide/fade lines near the left edge so they don't enter hero text area */}
+                    <linearGradient id="maskGradient" x1="0" y1="0" x2="480" y2="0" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stopColor="black" />
+                        <stop offset="70%" stopColor="black" />
+                        <stop offset="100%" stopColor="white" />
+                    </linearGradient>
+                    <mask id="leftSafeZone" maskUnits="userSpaceOnUse">
+                        {/* The gradient rect transitions from hidden (black) to visible (white) */}
+                        <rect x="0" y="0" width="100%" height="100%" fill="url(#maskGradient)" />
+                    </mask>
+                </defs>
+                <g mask="url(#leftSafeZone)">
+                    {paths.map((path) => (
+                        <motion.path
+                            key={path.id}
+                            d={path.d}
+                            stroke={path.color}
+                            strokeWidth={path.width}
+                            strokeOpacity={Math.min(0.6, 0.25 + path.id * 0.01)}
+                            initial={{ pathLength: 0.3, opacity: 0.4 }}
+                            animate={{
+                                pathLength: 1,
+                                opacity: [0.2, 0.5, 0.2],
+                                pathOffset: [0, 1, 0],
+                            }}
+                            transition={{
+                                duration: 25 + Math.random() * 15,
+                                repeat: Number.POSITIVE_INFINITY,
+                                ease: "linear",
+                                delay: path.id * 0.1,
+                            }}
+                        />
+                    ))}
+                </g>
             </svg>
         </div>
     );
@@ -69,7 +83,7 @@ export function BackgroundPaths({
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     <div className="space-y-8 relative z-10">
                         <div className="space-y-6">
-                            <h1 className="text-6xl xl:text-7xl font-light text-gray-900 leading-tight tracking-tight md:max-w-[32ch] lg:max-w-[40ch] xl:max-w-[44ch] break-words" style={{ textWrap: 'balance' }}>
+                            <h1 className="text-6xl xl:text-7xl font-light text-gray-900 leading-tight tracking-tight md:max-w-[30ch] lg:max-w-[34ch] xl:max-w-[36ch] break-words" style={{ textWrap: 'balance' }}>
                                 {title}
                             </h1>
                             <div className="space-y-4 text-xl text-gray-600 leading-relaxed max-w-xl">
@@ -89,8 +103,8 @@ export function BackgroundPaths({
                     </div>
                 </div>
             </div>
-            {/* Background paths - responsive start position for better coverage */}
-            <div className="absolute inset-y-0 left-1/2 md:left-[30%] lg:left-[33%] right-0 pointer-events-none z-0">
+            {/* Background paths - responsive start position for better coverage and safe zone mask applied in SVG */}
+            <div className="absolute inset-y-0 left-1/2 md:left-[32%] lg:left-[34%] right-0 pointer-events-none z-0">
                 <FloatingPaths position={1} />
             </div>
         </div>

@@ -656,8 +656,8 @@ export default function Home() {
                           </div>
                         </div>
                         
-                        {/* Dark banner at bottom */}
-                        <div className="bg-black/80 backdrop-blur-sm px-8 py-4">
+                        {/* Dark banner at bottom - pinned */}
+                        <div className="absolute bottom-0 inset-x-0 bg-black/80 backdrop-blur-sm px-8 py-4">
                           <Link href="#" className="text-white/80 hover:text-white font-normal text-sm transition-colors">
                             View the case study →
                           </Link>
