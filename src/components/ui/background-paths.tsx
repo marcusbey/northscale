@@ -59,120 +59,35 @@ export function BackgroundPaths({
     title?: string;
     subtitle?: string;
 }) {
-    const words = title.split(" ");
-
     return (
-        <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white">
-            <div className="absolute inset-0">
+        <div className="relative bg-white overflow-hidden py-12 lg:py-20">
+            {/* Background paths - positioned from 30% left to right edge */}
+            <div className="absolute top-0 left-[30%] right-0 bottom-0 overflow-hidden pointer-events-none">
                 <FloatingPaths position={1} />
-                <FloatingPaths position={-1} />
             </div>
 
-            <div className="relative z-10 container mx-auto px-4 md:px-6">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1.2 }}
-                        className="space-y-8"
-                    >
+                    <div className="space-y-8">
                         <div className="space-y-6">
-                            <h1 className="text-5xl xl:text-6xl font-light leading-tight tracking-tight">
-                                {words.map((word, wordIndex) => (
-                                    <span
-                                        key={wordIndex}
-                                        className="inline-block mr-3 last:mr-0"
-                                    >
-                                        {word.split("").map((letter, letterIndex) => (
-                                            <motion.span
-                                                key={`${wordIndex}-${letterIndex}`}
-                                                initial={{ y: 100, opacity: 0 }}
-                                                animate={{ y: 0, opacity: 1 }}
-                                                transition={{
-                                                    delay:
-                                                        wordIndex * 0.1 +
-                                                        letterIndex * 0.02,
-                                                    type: "spring",
-                                                    stiffness: 100,
-                                                    damping: 25,
-                                                }}
-                                                className="inline-block text-transparent bg-clip-text 
-                                                bg-gradient-to-r from-gray-900 to-gray-700"
-                                            >
-                                                {letter}
-                                            </motion.span>
-                                        ))}
-                                    </span>
-                                ))}
+                            <h1 className="text-6xl xl:text-7xl font-light text-gray-900 leading-tight tracking-tight">
+                                {title}
                             </h1>
-                            
-                            <motion.div 
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 1, duration: 0.8 }}
-                                className="space-y-4 text-xl text-gray-600 leading-relaxed max-w-xl"
-                            >
+                            <div className="space-y-4 text-xl text-gray-600 leading-relaxed max-w-xl">
                                 <p>{subtitle}</p>
-                            </motion.div>
+                            </div>
                         </div>
-                        
-                        <motion.div 
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 1.3, duration: 0.8 }}
-                            className="pt-4"
-                        >
+                        <div className="pt-4">
                             <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 text-base font-normal transition-all duration-300 rounded">
                                 See what we do
                             </Button>
-                        </motion.div>
-                    </motion.div>
-
-                    {/* Animated paths visualization on the right */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1.2, delay: 0.3 }}
-                        className="relative h-[600px] lg:h-[700px]"
-                    >
-                        <div className="absolute inset-0 overflow-hidden">
-                            <FloatingPaths position={0.5} />
-                            <FloatingPaths position={-0.3} />
-                            
-                            {/* Additional decorative elements */}
-                            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-                                {/* Animated circles */}
-                                <motion.circle 
-                                    cx="200" cy="150" r="4"
-                                    fill="#06b6d4"
-                                    initial={{ scale: 0, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 0.6 }}
-                                    transition={{ delay: 2, duration: 0.5 }}
-                                />
-                                <motion.circle 
-                                    cx="600" cy="250" r="6"
-                                    fill="#8b5cf6"
-                                    initial={{ scale: 0, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 0.7 }}
-                                    transition={{ delay: 2.3, duration: 0.5 }}
-                                />
-                                <motion.circle 
-                                    cx="400" cy="400" r="5"
-                                    fill="#db2777"
-                                    initial={{ scale: 0, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 0.5 }}
-                                    transition={{ delay: 2.6, duration: 0.5 }}
-                                />
-                                <motion.circle 
-                                    cx="150" cy="500" r="3"
-                                    fill="#f59e0b"
-                                    initial={{ scale: 0, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 0.8 }}
-                                    transition={{ delay: 2.9, duration: 0.5 }}
-                                />
-                            </svg>
                         </div>
-                    </motion.div>
+                    </div>
+
+                    {/* Right side for visual balance */}
+                    <div className="relative h-[600px] lg:h-[700px]">
+                        {/* Empty space for the background paths to show through */}
+                    </div>
                 </div>
             </div>
         </div>

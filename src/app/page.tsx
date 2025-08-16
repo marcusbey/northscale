@@ -152,16 +152,16 @@ export default function Home() {
       {/* Header */}
       <header className="bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
+          <div className="flex items-center justify-between h-24">
+            {/* Logo - Bigger and aligned with section */}
             <div className="flex items-center">
-              <div className="w-28 h-20 overflow-hidden flex items-center justify-center">
+              <div className="w-36 h-24 overflow-hidden flex items-center justify-start">
                 <Image 
                   src="/images/nsg-logo.png" 
                   alt="NorthScale Group - B2B Growth Agency" 
-                  width={112} 
-                  height={112}
-                  className="object-cover object-center scale-[0.98]"
+                  width={144} 
+                  height={144}
+                  className="object-contain object-left"
                 />
               </div>
             </div>
