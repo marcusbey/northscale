@@ -255,11 +255,11 @@ export default function Home() {
             <div className="space-y-8">
               <div className="space-y-6">
                 <h1 className="text-6xl xl:text-7xl font-light text-gray-900 leading-tight tracking-tight">
-                  B2B Growth Agency Canada | Revenue Optimization & Business Scaling
+                  Embrace possibility, redefine your industry.
                 </h1>
                 <div className="space-y-4 text-xl text-gray-600 leading-relaxed max-w-xl">
                   <p>
-                    NorthScale Group is a premier Canadian B2B growth agency deploying strategic operational excellence and growth marketing expertise to drive revenue optimization and multiply enterprise value for businesses across North America.
+                    NorthScale Group is a Canadian-based growth firm deploying strategic operational and marketing expertise to increase revenue growth and multiply enterprise value.
                   </p>
                 </div>
               </div>
@@ -459,7 +459,7 @@ export default function Home() {
             <div className="lg:w-1/3">
               <div className="lg:sticky lg:top-28">
                 <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight pt-0">
-                  B2B Growth Marketing & Business Consulting Services
+                  Our integrated platform
                 </h2>
               </div>
             </div>
@@ -469,8 +469,8 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-20">
                 {[
                   {
-                    title: "Strategic B2B Growth Consulting",
-                    description: "Enabling sustainable revenue optimization through end-to-end business growth solutions and comprehensive infrastructure-driven insights for enterprise scaling.",
+                    title: "Strategic Growth Consulting",
+                    description: "Enabling sustainable revenue growth through end-to-end solutions and comprehensive infrastructure-driven insights.",
                     icon: (
                       <div className="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center">
                         <div className="w-6 h-6 rounded-full border border-gray-400"></div>
@@ -479,8 +479,8 @@ export default function Home() {
                     )
                   },
                   {
-                    title: "Growth Marketing & B2B Funnel Optimization",
-                    description: "Structuring coordinated performance marketing campaigns across digital and social channels to maximize B2B engagement and conversion efficiency.",
+                    title: "Performance Marketing",
+                    description: "Structuring coordinated campaigns across digital and social to maximize engagement and conversion efficiency.",
                     icon: (
                       <div className="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center">
                         <div className="w-6 h-6 rounded-full border border-gray-400"></div>
@@ -519,8 +519,8 @@ export default function Home() {
                     )
                   },
                   {
-                    title: "Marketing Automation & Technology Integration",
-                    description: "Transforming B2B workflows by implementing advanced marketing automation tools and seamless technology ecosystems, reducing operational costs while scaling growth.",
+                    title: "Technology Integration & Automation Systems",
+                    description: "Transforming workflows by implementing advanced personalized automation tools and seamless technology ecosystems, reducing operational costs.",
                     icon: (
                       <div className="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center">
                         <div className="space-y-1">
@@ -629,14 +629,14 @@ export default function Home() {
           <div className="flex items-center px-8 lg:px-16 py-16 lg:py-20 bg-white">
             <div className="max-w-xl space-y-8">
               <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
-                Leading Canadian B2B Growth Firm
+                Who we are
               </h2>
               <div className="space-y-6">
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  NorthScale Group is a premier Canadian B2B growth agency delivering advanced, end-to-end business growth solutions that drive revenue optimization and operational excellence. We combine strategic growth consulting, cutting-edge marketing automation, and world-class growth marketing execution to empower businesses to scale confidently and sustainably.
+                  NorthScale Group is a premier Canadian growth firm delivering advanced, end-to-end solutions that drive revenue expansion and operational excellence. We combine strategic consulting, cutting-edge technology, and world-class marketing execution to empower businesses to scale confidently and sustainably.
                 </p>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Our success is defined by yours. We are 100% committed to helping you achieve sustainable business growth and revenue optimization, doing whatever it takes to achieve your enterprise scaling goals.
+                  Our success is defined by yours. We are 100% committed to helping you grow your business and increase your profits, doing whatever it takes to achieve your goals.
                 </p>
               </div>
               <div className="pt-4">
