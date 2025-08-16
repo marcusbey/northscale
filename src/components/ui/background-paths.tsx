@@ -61,14 +61,9 @@ export function BackgroundPaths({
 }) {
     return (
         <div className="relative bg-white overflow-hidden py-12 lg:py-20">
-            {/* Background paths - positioned from 30% left to right edge */}
-            <div className="absolute top-0 left-[30%] right-0 bottom-0 overflow-hidden pointer-events-none">
-                <FloatingPaths position={1} />
-            </div>
-
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                    <div className="space-y-8">
+                    <div className="space-y-8 relative z-10">
                         <div className="space-y-6">
                             <h1 className="text-6xl xl:text-7xl font-light text-gray-900 leading-tight tracking-tight">
                                 {title}
@@ -88,6 +83,15 @@ export function BackgroundPaths({
                     <div className="relative h-[600px] lg:h-[700px]">
                         {/* Empty space for the background paths to show through */}
                     </div>
+                </div>
+
+                {/* Background paths - covering from hero text container to beyond browser edge */}
+                <div className="absolute top-0 bottom-0 pointer-events-none" style={{
+                    left: 'calc(50% - 10rem)', // Start from around the hero text container edge
+                    right: 'calc(-100vw + 100%)', // Extend way beyond the right edge of the viewport
+                    width: '200vw' // Ensure it covers well beyond viewport
+                }}>
+                    <FloatingPaths position={1} />
                 </div>
             </div>
         </div>
