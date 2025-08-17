@@ -16,7 +16,7 @@ function FloatingPaths({ position }: { position: number }) {
         const midY = y;
         const endX = W + 400; // offscreen right
         const color = i % 4 === 0 ? '#06b6d4' : i % 4 === 1 ? '#8b5cf6' : i % 4 === 2 ? '#db2777' : '#f59e0b';
-        const width = 0.5 + i * 0.02;
+        const width = 1.5 + i * 0.04; // Thicker paths
         const d = `M${startX},${y} Q${c1x},${c1y} ${midX},${midY} T${endX},${y}`;
         return { id: i, d, color, width };
     });
@@ -57,10 +57,10 @@ function FloatingPaths({ position }: { position: number }) {
                                 pathOffset: [0, 1, 0],
                             }}
                             transition={{
-                                duration: 25 + Math.random() * 15,
+                                duration: 15 + Math.random() * 10, // Faster animation
                                 repeat: Number.POSITIVE_INFINITY,
                                 ease: "linear",
-                                delay: path.id * 0.1,
+                                delay: path.id * 0.03, // Much shorter delay to start earlier
                             }}
                         />
                     ))}
@@ -83,7 +83,7 @@ export function BackgroundPaths({
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     <div className="space-y-8 relative z-10">
                         <div className="space-y-6">
-                            <h1 className="text-6xl xl:text-7xl font-light text-gray-900 leading-tight tracking-tight md:max-w-[30ch] lg:max-w-[34ch] xl:max-w-[36ch] break-words" style={{ textWrap: 'balance' }}>
+                            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-light text-gray-900 leading-[1.1] tracking-tight lg:max-w-[20ch] xl:max-w-[18ch] break-words" style={{ textWrap: 'balance' }}>
                                 {title}
                             </h1>
                             <div className="space-y-4 text-xl text-gray-600 leading-relaxed max-w-xl">
@@ -103,8 +103,11 @@ export function BackgroundPaths({
                     </div>
                 </div>
             </div>
-            {/* Background paths - responsive start position for better coverage and safe zone mask applied in SVG */}
-            <div className="absolute inset-y-0 left-1/2 md:left-[32%] lg:left-[34%] right-0 pointer-events-none z-0">
+            {/* Background paths - extended coverage area */}
+            <div className="absolute inset-y-0 pointer-events-none z-0" style={{
+                left: '40%', // Start closer to the text
+                right: '-50%', // Extend well beyond the right edge
+            }}>
                 <FloatingPaths position={1} />
             </div>
         </div>
