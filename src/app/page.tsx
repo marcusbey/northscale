@@ -826,9 +826,9 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {/* Logo and certification - Full width on mobile */}
-            <div className="space-y-6 sm:col-span-2 md:col-span-1">
+            <div className="space-y-6 col-span-1 sm:col-span-2 lg:col-span-1">
               <div className="w-32 h-24 flex items-center justify-start">
                 <Image 
                   src="/images/nsg-logo-white.png" 
@@ -855,8 +855,8 @@ export default function Home() {
             </div>
 
             {/* Company */}
-            <div>
-              <h3 className="text-white font-normal mb-6 text-base leading-normal">Company</h3>
+            <div className="mt-8 sm:mt-0">
+              <h3 className="text-white font-normal mb-4 sm:mb-6 text-base leading-normal">Company</h3>
               <ul className="space-y-3">
                 <li><Link href="#" className="text-white/60 hover:text-white transition-colors text-sm leading-normal">Careers</Link></li>
                 <li><Link href="#" className="text-white/60 hover:text-white transition-colors text-sm leading-normal">About</Link></li>
@@ -865,9 +865,9 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* Stay up to date */}
-            <div>
-              <h3 className="text-white font-normal mb-6 text-base leading-normal">Resources</h3>
+            {/* Resources */}
+            <div className="mt-8 sm:mt-0">
+              <h3 className="text-white font-normal mb-4 sm:mb-6 text-base leading-normal">Resources</h3>
               <ul className="space-y-3">
                 <li><Link href="#" className="text-white/60 hover:text-white transition-colors text-sm leading-normal">Blog</Link></li>
                 <li><Link href="#" className="text-white/60 hover:text-white transition-colors text-sm leading-normal">Resources</Link></li>
@@ -875,8 +875,8 @@ export default function Home() {
             </div>
 
             {/* Get in touch */}
-            <div>
-              <h3 className="text-white font-normal mb-6 text-base leading-normal">Get in touch</h3>
+            <div className="mt-8 sm:mt-0">
+              <h3 className="text-white font-normal mb-4 sm:mb-6 text-base leading-normal">Get in touch</h3>
               <div className="space-y-3">
                 <p className="text-white/60 text-sm leading-normal">
                   Contact us
@@ -885,13 +885,13 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-16">
-            <div className="bg-black -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-8">
-              <div className="flex flex-col md:flex-row justify-between items-start space-y-4 md:space-y-0">
+          <div className="mt-12 md:mt-16">
+            <div className="border-t border-white/10 pt-8">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div className="text-white/40 text-xs leading-normal max-w-2xl">
                   All rights reserved. Copyright© 2023-2025. NorthScale Group.
                 </div>
-                <div className="flex space-x-6 text-white/40 text-xs leading-normal">
+                <div className="flex flex-wrap gap-4 sm:gap-6 text-white/40 text-xs leading-normal">
                   <Link href="#" className="hover:text-white/60 transition-colors">Terms & Conditions</Link>
                   <Link href="#" className="hover:text-white/60 transition-colors">Privacy Policy</Link>
                 </div>
