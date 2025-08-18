@@ -16,7 +16,7 @@ function FloatingPaths({ position }: { position: number }) {
         const midY = y;
         const endX = W + 400; // offscreen right
         const color = i % 4 === 0 ? '#06b6d4' : i % 4 === 1 ? '#8b5cf6' : i % 4 === 2 ? '#db2777' : '#f59e0b';
-        const width = 1.5 + i * 0.04; // Thicker paths
+        const width = 0.8 + i * 0.025; // Reduced thickness
         const d = `M${startX},${y} Q${c1x},${c1y} ${midX},${midY} T${endX},${y}`;
         return { id: i, d, color, width };
     });
@@ -103,9 +103,9 @@ export function BackgroundPaths({
                     </div>
                 </div>
             </div>
-            {/* Background paths - extended coverage area */}
+            {/* Background paths - positioned close to description */}
             <div className="absolute inset-y-0 pointer-events-none z-0" style={{
-                left: '40%', // Start closer to the text
+                left: '48%', // Very close to the description container
                 right: '-50%', // Extend well beyond the right edge
             }}>
                 <FloatingPaths position={1} />
