@@ -105,7 +105,7 @@ export function BackgroundPaths({
             </div>
             {/* Background paths - hidden on mobile, positioned close to description on desktop */}
             <div className="hidden lg:block absolute inset-y-0 pointer-events-none z-0" style={{
-                left: '48%', // Very close to the description container
+                left: '24%', // Moved 50% closer to the left (was 48%, now 24%)
                 right: '-50%', // Extend well beyond the right edge
             }}>
                 <FloatingPaths position={1} />
