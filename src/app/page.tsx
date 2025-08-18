@@ -772,33 +772,57 @@ export default function Home() {
 
       {/* Final CTA Section */}
       <section className="py-32 bg-black relative overflow-hidden">
-        {/* Flowing Ribbon Graphics - Hidden on mobile, visible on desktop */}
+        {/* Dynamic Wavy Background - Hidden on mobile, visible on desktop */}
         <div className="absolute inset-0 overflow-hidden hidden md:block">
           <svg
-            className="absolute top-0 right-0 h-full w-1/2"
-            viewBox="0 0 800 600"
+            className="absolute -top-20 -right-20 h-[120%] w-[70%]"
+            viewBox="0 0 1000 800"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMaxYMin slice"
+            preserveAspectRatio="xMidYMid slice"
           >
             <defs>
-              <linearGradient id="cta-ribbon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#06b6d4" />
-                <stop offset="25%" stopColor="#3b82f6" />
-                <stop offset="50%" stopColor="#8b5cf6" />
-                <stop offset="75%" stopColor="#ec4899" />
-                <stop offset="100%" stopColor="#f97316" />
+              <linearGradient id="wave-gradient-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.8" />
+                <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#db2777" stopOpacity="0.4" />
+              </linearGradient>
+              <linearGradient id="wave-gradient-2" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.6" />
+                <stop offset="50%" stopColor="#ec4899" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.3" />
+              </linearGradient>
+              <linearGradient id="wave-gradient-3" x1="50%" y1="0%" x2="50%" y2="100%">
+                <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.2" />
               </linearGradient>
             </defs>
+            {/* Dynamic wave paths */}
             <path
-              d="M400,100 Q600,50 800,150 L800,250 Q600,200 400,300 T800,450 L800,600 L400,600 Z"
-              fill="url(#cta-ribbon-gradient)"
-              opacity="0.8"
+              d="M200,800 Q300,600 400,500 T600,300 Q700,200 800,250 T1000,100 L1000,800 Z"
+              fill="url(#wave-gradient-1)"
+              opacity="0.9"
             />
             <path
-              d="M500,0 Q700,25 900,100 L900,200 Q700,150 500,250 T900,400 L900,500 L500,500 Z"
-              fill="url(#cta-ribbon-gradient)"
-              opacity="0.4"
+              d="M300,800 Q400,650 500,550 T700,400 Q800,300 900,350 T1100,200 L1100,800 Z"
+              fill="url(#wave-gradient-2)"
+              opacity="0.7"
+            />
+            <path
+              d="M100,800 Q250,700 400,600 T650,450 Q750,350 850,400 T1000,300 L1000,800 Z"
+              fill="url(#wave-gradient-3)"
+              opacity="0.5"
+            />
+            {/* Additional flowing elements */}
+            <path
+              d="M400,50 Q500,100 600,50 T800,150 Q900,200 1000,150 L1000,400 Q800,350 600,450 T400,350 Z"
+              fill="url(#wave-gradient-1)"
+              opacity="0.3"
+            />
+            <path
+              d="M500,150 Q600,200 700,150 T900,250 L900,500 Q700,450 500,550 Z"
+              fill="url(#wave-gradient-2)"
+              opacity="0.25"
             />
           </svg>
         </div>
